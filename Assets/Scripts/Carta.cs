@@ -17,13 +17,22 @@ public class Carta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("a"))
+        {
+            FlipCard();
+        }
+
     }
 
-    void FipCard()
+    private void OnMouseDown()
+    {
+        FlipCard();
+    }
+
+    void FlipCard()
     {
         facingDown = !facingDown;
-        transform.
+        transform.localEulerAngles = Vector3.forward * (facingDown ?  0f : 180f) ;
     }
 
 }
