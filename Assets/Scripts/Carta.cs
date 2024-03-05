@@ -26,10 +26,7 @@ public class Carta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("a"))
-        {
-            FlipCard();
-        }
+       
 
         if (onHand) OnHand();
     }
@@ -45,7 +42,7 @@ public class Carta : MonoBehaviour
     
     private void OnMouseDown()
     {
-        FlipCard();
+        PlaceCard();
     }
 
     private void OnMouseOver()
@@ -59,9 +56,26 @@ public class Carta : MonoBehaviour
         beingHovered = false;
     }
 
-    void FlipCard()
+    void PlaceCard()
     {
-       
+        
+
+
+        for(int i = 0; i < hand.GetComponent<Hand>().targets.Count; i++)
+        {
+            if (!hand.GetComponent<Hand>().targets[i].GetComponent<Target>().ocupado)
+            {
+                onHand = false;
+                transform.position = hand.GetComponent<Hand>().targets[i].transform.position;
+                transform.LookAt(Vector3.up, Vector3.up);
+                return;
+            }
+
+        }
+
+        
+
+
     }
 
 
