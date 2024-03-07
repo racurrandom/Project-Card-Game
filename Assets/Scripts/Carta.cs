@@ -68,6 +68,7 @@ public class Carta : MonoBehaviour
                 onHand = false;
                 transform.position = hand.GetComponent<Hand>().targets[i].transform.position;
                 transform.localEulerAngles = -Vector3.right * 90f;
+                hand.GetComponent<Hand>().targets[i].GetComponent<Target>().ocupado = true;
                 return;
             }
 
