@@ -13,9 +13,10 @@ public class Deck : MonoBehaviour
         Carta obj = Instantiate(carta).GetComponent<Carta>();
         obj.hand = Hand;
 
-        Hand.GetComponent<Hand>().cartas.Add(obj.gameObject);
+        Hand.GetComponent<Hand>().AddCard(obj);
 
     }
 
+    
 
 }

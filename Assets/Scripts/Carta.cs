@@ -33,8 +33,7 @@ public class Carta : MonoBehaviour
 
     void OnHand()
     {
-        transform.position = hand.transform.position;
-        if (beingHovered) transform.position += transform.up * 0.2f;
+       // if (beingHovered) transform.position += transform.up * 0.2f;
         transform.LookAt(Camera.main.transform.position, Vector3.up);
         
 
