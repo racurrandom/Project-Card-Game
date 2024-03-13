@@ -47,7 +47,7 @@ public class Carta : MonoBehaviour
     private void OnMouseOver()
     {
         beingHovered = true;
-        print("hola");
+        
     }
 
     private void OnMouseExit()

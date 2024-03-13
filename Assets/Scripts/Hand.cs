@@ -26,10 +26,10 @@ public class Hand : MonoBehaviour
 
     private void UpdateCardsPlacement()
     {
-        print(cartas.Count);
+        
         Vector3 pos;
-        float leftLimit = cartas.Count * cardPadding / 2f;
-
+        float leftLimit = (cartas.Count-1) * cardPadding / 2f;
+       
         for (int i = 0; i < cartas.Count; i++)
         {
             pos = transform.position + (transform.right *  (-leftLimit + i * cardPadding));

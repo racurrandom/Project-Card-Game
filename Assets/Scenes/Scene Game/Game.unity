@@ -605,7 +605,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1652074503759764348, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
       propertyPath: cardPadding
-      value: 1.29
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2802098719180241825, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
       propertyPath: m_LocalPosition.x
