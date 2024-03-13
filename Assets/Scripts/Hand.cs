@@ -28,11 +28,11 @@ public class Hand : MonoBehaviour
     {
         print(cartas.Count);
         Vector3 pos;
+        float leftLimit = cartas.Count * cardPadding / 2f;
+
         for (int i = 0; i < cartas.Count; i++)
         {
-            pos = transform.position;
-            pos += (transform.right * ((cartas.Count - i - 1) * cardPadding))/2;
-
+            pos = transform.position + (transform.right *  (-leftLimit + i * cardPadding));
             cartas[i].transform.position = pos;
         }
     }
