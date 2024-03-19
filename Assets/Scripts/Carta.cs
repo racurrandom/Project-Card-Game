@@ -6,21 +6,25 @@ using UnityEngine.UI;
 public class Carta : MonoBehaviour
 {
 
-    bool onHand;
-    bool active;
-    bool beingHovered;
-
+    [HideInInspector] public bool onHand;
+    [HideInInspector] public bool active;
+    [HideInInspector] bool beingHovered;
     [HideInInspector] public GameObject hand;
 
-   
+    public enum Tipo
+    {
+        Mounstruo,
+        Hechizo,
+        Equipo
+    }
+
+    [HideInInspector] public Tipo tipo;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
-
-        onHand = true;
-        active = false;
+        
     }
 
     // Update is called once per frame
@@ -39,7 +43,7 @@ public class Carta : MonoBehaviour
 
     }
     
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         PlaceCard();
     }
@@ -57,8 +61,6 @@ public class Carta : MonoBehaviour
 
     void PlaceCard()
     {
-        
-
 
         for(int i = 0; i < hand.GetComponent<Hand>().targets.Count; i++)
         {
@@ -66,16 +68,11 @@ public class Carta : MonoBehaviour
             {
                 onHand = false;
                 transform.position = hand.GetComponent<Hand>().targets[i].transform.position;
-                transform.localEulerAngles = -Vector3.right * 90f;
+                transform.localEulerAngles = -Vector3.right * 90f + Vector3.up * 180f;
                 hand.GetComponent<Hand>().targets[i].GetComponent<Target>().ocupado = true;
                 return;
             }
-
         }
-
-        
-
-
     }
 
 
