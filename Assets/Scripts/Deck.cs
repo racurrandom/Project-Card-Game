@@ -11,11 +11,11 @@ public class Deck : MonoBehaviour
     private void OnMouseDown()
     {
 
-        Carta obj = Instantiate(carta).GetComponent<Carta>();
+        Carta obj = Instantiate(carta, transform.position + Vector3.up, transform.rotation).GetComponent<Carta>();
 
         //Hacer que se meta script de carta random, bro
 
-        obj.hand = Hand;
+        obj.handObj = Hand;
         obj.onHand = true;
         obj.active = false;
 

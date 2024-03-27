@@ -28,20 +28,30 @@ public class Hand : MonoBehaviour
         UpdateCardsPlacement();
     }
 
-    private void UpdateCardsPlacement()
+    public void UpdateCardsPlacement()
     {
        
         Vector3 pos;
-        float leftLimit = (cartas.Count-1) * cardPadding / 2f;
-       
+
+        //Recuento de crtas en mano
+        int cardsOnHand = 0;
+        for(int i = 0; i < cartas.Count; i++)
+        {
+            if (cartas[i].GetComponent<Carta>().onHand) cardsOnHand++;
+        }
+        float leftLimit = (cardsOnHand - 1) * cardPadding / 2f;
+
+        int j;
+        j = 0;
         //Dar posicion a las cartas
         for (int i = 0; i < cartas.Count; i++)
         {
             //Solo actualiza si la carta esta en la mano
             if (cartas[i].GetComponent<Carta>().onHand)
-            {
-                pos = transform.position + (transform.right * (-leftLimit + i * cardPadding));
-                cartas[i].transform.position = pos;
+            {   
+                pos = transform.position + (transform.right * (-leftLimit + j * cardPadding));
+                cartas[i].GetComponent<Carta>().position = pos;
+                j++;
             }
         }
     }

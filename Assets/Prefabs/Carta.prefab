@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b253ffac6d309d44bf112cddffc63bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handObj: {fileID: 0}
+  position: {x: 0, y: 0, z: 0}
+  moveSpeed: 14.4
   onHand: 0
   active: 0
-  hand: {fileID: 0}
+  tipo: 0
 --- !u!65 &6944944586526823033
 BoxCollider:
   m_ObjectHideFlags: 0

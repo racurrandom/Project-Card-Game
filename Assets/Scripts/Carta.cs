@@ -6,10 +6,19 @@ using UnityEngine.UI;
 public class Carta : MonoBehaviour
 {
 
+    //Components
+    [HideInInspector] public GameObject handObj;
+    public Hand hand => handObj.GetComponent<Hand>();
+
+    //Variables
+    [HideInInspector] public Vector3 position;
+    Vector3 displacement;
+    [SerializeField] float moveSpeed = 1f;
+
+    //States
     [HideInInspector] public bool onHand;
     [HideInInspector] public bool active;
     [HideInInspector] bool beingHovered;
-    [HideInInspector] public GameObject hand;
 
     public enum Tipo
     {
@@ -30,17 +39,17 @@ public class Carta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
+        transform.position = Vector3.MoveTowards(transform.position, position + displacement, moveSpeed * Time.deltaTime);
+        displacement = Vector3.zero;
         if (onHand) OnHand();
     }
 
     void OnHand()
     {
-       // if (beingHovered) transform.position += transform.up * 0.2f;
+        if (beingHovered) displacement = Vector3.up * 0.2f;
         transform.LookAt(Camera.main.transform.position, Vector3.up);
-        
 
+        
     }
     
     protected virtual void OnMouseDown()
@@ -62,17 +71,22 @@ public class Carta : MonoBehaviour
     void PlaceCard()
     {
 
-        for(int i = 0; i < hand.GetComponent<Hand>().targets.Count; i++)
+        //Check si hay lugar disponible 
+        for(int i = 0; i < hand.targets.Count; i++)
         {
-            if (!hand.GetComponent<Hand>().targets[i].GetComponent<Target>().ocupado)
+            if (!hand.targets[i].GetComponent<Target>().ocupado)
             {
                 onHand = false;
-                transform.position = hand.GetComponent<Hand>().targets[i].transform.position;
+                position = hand.targets[i].transform.position;
                 transform.localEulerAngles = -Vector3.right * 90f + Vector3.up * 180f;
-                hand.GetComponent<Hand>().targets[i].GetComponent<Target>().ocupado = true;
-                return;
+                hand.targets[i].GetComponent<Target>().ocupado = true;
+
+                break;
             }
         }
+
+        //Actualizar posicion de mano
+        hand.UpdateCardsPlacement();
     }
 
 
