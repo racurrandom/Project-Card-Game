@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.125
+    m_Value: 0.043
 --- !u!114 &-258912480914240113
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -36,11 +36,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.135
   smoothness:
-    m_OverrideState: 0
-    m_Value: 0.2
+    m_OverrideState: 1
+    m_Value: 0.543
   rounded:
     m_OverrideState: 0
     m_Value: 0
