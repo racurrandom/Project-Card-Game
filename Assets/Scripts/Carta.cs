@@ -42,19 +42,32 @@ public class Carta : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, position + displacement, moveSpeed * Time.deltaTime);
         displacement = Vector3.zero;
         if (onHand) OnHand();
+        else Placed();
+        
     }
 
     void OnHand()
     {
+        //Levantar la carta si tiene el raton encima
         if (beingHovered) displacement = Vector3.up * 0.2f;
+
+        //Mirar a la camara
         transform.LookAt(Camera.main.transform.position, Vector3.up);
 
         
     }
-    
+
+    void Placed()
+    {
+        //Levantar la carta si tiene el raton encima
+        if (beingHovered) displacement = Vector3.up * 0.1f;
+
+
+    }
+
     protected virtual void OnMouseDown()
     {
-        PlaceCard();
+       if (onHand) PlaceCard();
     }
 
     private void OnMouseOver()
