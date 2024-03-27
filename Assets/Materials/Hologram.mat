@@ -56,7 +56,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _lineSpacing: 11.09
-    - _scrollingSpeed: 0.61
+    - _lineSpacing: 13.65
+    - _scrollingSpeed: -0.43
     m_Colors: []
   m_BuildTextureStacks: []

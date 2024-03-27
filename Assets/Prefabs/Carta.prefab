@@ -46,10 +46,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b253ffac6d309d44bf112cddffc63bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  models:
+  - {fileID: 5542475434384013017, guid: a2e1927f08470884fac278a5a7d649da, type: 3}
+  hologramMat: {fileID: 2100000, guid: 7c5a67237de792148a7e38f3d3c918a8, type: 2}
+  holoController: {fileID: 9100000, guid: 6cfa9d7b97f94444abf8a2763153ee79, type: 2}
+  moveSpeed: 14.4
   handObj: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
-  moveSpeed: 14.4
   onHand: 0
+  placed: 0
   active: 0
   tipo: 0
 --- !u!65 &6944944586526823033

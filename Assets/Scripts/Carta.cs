@@ -1,22 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Carta : MonoBehaviour
 {
+    [Header("Hoologramas")]
+    [SerializeField] private Mesh[] models;
+    [SerializeField] private Material hologramMat;
+    [SerializeField] private AnimatorController holoController;
+
+    [Header("Animación")]
+    [SerializeField] private float moveSpeed = 1f;
 
     //Components
     [HideInInspector] public GameObject handObj;
     public Hand hand => handObj.GetComponent<Hand>();
+    private GameObject hologram;
 
     //Variables
     [HideInInspector] public Vector3 position;
     Vector3 displacement;
-    [SerializeField] float moveSpeed = 1f;
+    
 
     //States
     [HideInInspector] public bool onHand;
+    [HideInInspector] public bool placed = false;
     [HideInInspector] public bool active;
     [HideInInspector] bool beingHovered;
 
@@ -33,7 +45,18 @@ public class Carta : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        hologram = new GameObject();
+
+        MeshFilter filter = hologram.AddComponent<MeshFilter>();
+        MeshRenderer renderer = hologram.AddComponent<MeshRenderer>();
+        Animator anim = hologram.AddComponent<Animator>();
+        filter.mesh = this.models[0];
+        renderer.material = this.hologramMat;
+        anim.runtimeAnimatorController = holoController;
+        hologram.transform.SetParent(this.transform);
+        hologram.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -61,13 +84,15 @@ public class Carta : MonoBehaviour
     {
         //Levantar la carta si tiene el raton encima
         if (beingHovered) displacement = Vector3.up * 0.1f;
-
+       
 
     }
 
     protected virtual void OnMouseDown()
     {
-       if (onHand) PlaceCard();
+        if (placed) ShowHologram();
+        if (onHand) PlaceCard();
+        
     }
 
     private void OnMouseOver()
@@ -94,6 +119,8 @@ public class Carta : MonoBehaviour
                 transform.localEulerAngles = -Vector3.right * 90f + Vector3.up * 180f;
                 hand.targets[i].GetComponent<Target>().ocupado = true;
 
+                placed = true;
+
                 break;
             }
         }
@@ -102,6 +129,15 @@ public class Carta : MonoBehaviour
         hand.UpdateCardsPlacement();
     }
 
+
+    private void ShowHologram()
+    {
+
+        GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * 0.7f, Quaternion.Euler(Vector3.zero), null);
+        obj.transform.localScale = Vector3.one * 0.02f;
+        obj.SetActive(true);
+
+    }
 
 
 }
