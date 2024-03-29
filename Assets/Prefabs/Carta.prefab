@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5500492003534206426}
-  - component: {fileID: 5522108324018284922}
   - component: {fileID: 6944944586526823033}
+  - component: {fileID: 7830423728082237419}
   m_Layer: 0
   m_Name: Carta
   m_TagString: Untagged
@@ -34,29 +34,6 @@ Transform:
   - {fileID: 1911315382186020101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5522108324018284922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5813941277138497774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b253ffac6d309d44bf112cddffc63bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  models:
-  - {fileID: 5542475434384013017, guid: a2e1927f08470884fac278a5a7d649da, type: 3}
-  hologramMat: {fileID: 2100000, guid: 7c5a67237de792148a7e38f3d3c918a8, type: 2}
-  holoController: {fileID: 9100000, guid: 6cfa9d7b97f94444abf8a2763153ee79, type: 2}
-  moveSpeed: 14.4
-  handObj: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
-  onHand: 0
-  placed: 0
-  active: 0
-  tipo: 0
 --- !u!65 &6944944586526823033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78,6 +55,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.85, y: 1.36, z: 0.16}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7830423728082237419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813941277138497774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b307b943817b0d24090bc042579d880d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hologramMat: {fileID: 2100000, guid: 7c5a67237de792148a7e38f3d3c918a8, type: 2}
+  holoController: {fileID: 9100000, guid: 6cfa9d7b97f94444abf8a2763153ee79, type: 2}
+  hologramHieght: 4
+  hologramSize: 2
+  models:
+  - {fileID: 4300000, guid: 87cd6f6ff5f62cd478bf11155e4f3526, type: 2}
+  moveSpeed: 14
 --- !u!1001 &2093296742166260462
 PrefabInstance:
   m_ObjectHideFlags: 0

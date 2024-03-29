@@ -13,8 +13,9 @@ public class Carta_Monstruo : Carta
 
     public Carta carta;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         tipo = Tipo.Mounstruo;
     }
 

@@ -8,18 +8,23 @@ using UnityEngine.UI;
 
 public class Carta : MonoBehaviour
 {
-    [Header("Hoologramas")]
-    [SerializeField] private Mesh[] models;
-    [SerializeField] private Material hologramMat;
-    [SerializeField] private AnimatorController holoController;
+    //Holograma
+    [SerializeField] private Material hologramMat => GetComponent<Carta_Helper>().hologramMat;
+    [SerializeField] private AnimatorController holoController => GetComponent<Carta_Helper>().holoController;
+    [SerializeField] private float hologramHieght => GetComponent<Carta_Helper>().hologramHieght;
+    [SerializeField] private float hologramSize => GetComponent<Carta_Helper>().hologramSize;
+    [SerializeField] private Mesh[] models => GetComponent<Carta_Helper>().models;
+    private GameObject hologram;
 
-    [Header("Animación")]
-    [SerializeField] private float moveSpeed = 1f;
+    //Animacion
+    [SerializeField] private float moveSpeed => GetComponent<Carta_Helper>().moveSpeed;
 
     //Components
     [HideInInspector] public GameObject handObj;
     public Hand hand => handObj.GetComponent<Hand>();
-    private GameObject hologram;
+    [SerializeField] public Material frontFace;
+
+    
 
     //Variables
     [HideInInspector] public Vector3 position;
@@ -43,7 +48,7 @@ public class Carta : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         hologram = new GameObject();
 
@@ -56,6 +61,10 @@ public class Carta : MonoBehaviour
         hologram.transform.SetParent(this.transform);
         hologram.SetActive(false);
 
+       
+        
+
+        
 
     }
 
@@ -66,8 +75,12 @@ public class Carta : MonoBehaviour
         displacement = Vector3.zero;
         if (onHand) OnHand();
         else Placed();
-        
+
+        transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1] = hologramMat;
+        print(transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1].name);
+
     }
+
 
     void OnHand()
     {
@@ -133,8 +146,8 @@ public class Carta : MonoBehaviour
     private void ShowHologram()
     {
 
-        GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * 0.7f, Quaternion.Euler(Vector3.zero), null);
-        obj.transform.localScale = Vector3.one * 0.02f;
+        GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * hologramHieght / 10, Quaternion.Euler(Vector3.zero), null);
+        obj.transform.localScale = Vector3.one * hologramSize / 100;
         obj.SetActive(true);
 
     }
