@@ -15,5 +15,8 @@ public class Carta_Helper : MonoBehaviour
 
     [Header("Animación")]
     [SerializeField] public float moveSpeed = 14;
+
+    [Header("Materiales")]
+    [SerializeField] public Material[] Faces;
     
 }

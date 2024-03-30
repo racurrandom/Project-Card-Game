@@ -19,10 +19,12 @@ public class Carta : MonoBehaviour
     //Animacion
     [SerializeField] private float moveSpeed => GetComponent<Carta_Helper>().moveSpeed;
 
+    //Materiales
+    [SerializeField] protected Material[] Faces => GetComponent<Carta_Helper>().Faces;
+
     //Components
     [HideInInspector] public GameObject handObj;
     public Hand hand => handObj.GetComponent<Hand>();
-    [SerializeField] public Material frontFace;
 
     
 
@@ -62,9 +64,6 @@ public class Carta : MonoBehaviour
         hologram.SetActive(false);
 
        
-        
-
-        
 
     }
 
@@ -76,8 +75,6 @@ public class Carta : MonoBehaviour
         if (onHand) OnHand();
         else Placed();
 
-        transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1] = hologramMat;
-        print(transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().materials[1].name);
 
     }
 
@@ -152,5 +149,20 @@ public class Carta : MonoBehaviour
 
     }
 
+    protected void ChangeFront(String name)
+    {
+
+        foreach(Material mat in Faces)
+        {
+            if(mat.name == name)
+            {
+                //No se puede cambiar el material de un mesh renderer indivudualmente asi que se hace otro array y se sustituye
+                Material[] array = { transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().sharedMaterials[0], mat };
+                transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().sharedMaterials = array;
+                
+                return;
+            }
+        }
+    }
 
 }

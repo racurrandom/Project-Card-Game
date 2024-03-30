@@ -23,7 +23,7 @@ public class Deck : MonoBehaviour
         
 
         //Se crea carta de hechizo o equipo aleatoriamente
-        switch (Random.Range(0, 1))
+        switch (Random.Range(0, 2))
         {
             case 0:
                 obj.AddComponent<Carta_Equipo>();

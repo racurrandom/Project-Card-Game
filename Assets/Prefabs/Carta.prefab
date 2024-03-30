@@ -74,6 +74,9 @@ MonoBehaviour:
   models:
   - {fileID: 4300000, guid: 87cd6f6ff5f62cd478bf11155e4f3526, type: 2}
   moveSpeed: 14
+  Faces:
+  - {fileID: 2100000, guid: 2ba62a673eed90a4daeedf0e4ed08e95, type: 2}
+  - {fileID: 2100000, guid: 1cd1f42626805d543b38a0ff13e13def, type: 2}
 --- !u!1001 &2093296742166260462
 PrefabInstance:
   m_ObjectHideFlags: 0
