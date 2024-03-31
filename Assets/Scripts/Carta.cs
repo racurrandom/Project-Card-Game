@@ -154,6 +154,7 @@ public class Carta : MonoBehaviour
 
         foreach(Material mat in Faces)
         {
+            //Si el nombre del material coincide con el nombre de la carta
             if(mat.name == name)
             {
                 //No se puede cambiar el material de un mesh renderer indivudualmente asi que se hace otro array y se sustituye
@@ -163,6 +164,10 @@ public class Carta : MonoBehaviour
                 return;
             }
         }
+
+        Material[] error = { transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().sharedMaterials[0], Faces[0] };
+        transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().sharedMaterials = error;
+
     }
 
 }

@@ -23,20 +23,21 @@ public class Carta_Monstruo : Carta
         //Select random card
         carta = (Carta)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(Carta)).Cast<Carta>().Max() + 1);
 
-        
+        ChangeFront(carta.ToString());
+
         switch (carta.ToString())
         {
             case "Chunky_Flying_Cat":
-                print("gato");
+               
 
-                ChangeFront(carta.ToString());
+                
 
                 break;
 
             case "Mighty_Dragon":
-                print("dragon");
+                
 
-                ChangeFront(carta.ToString());
+
 
                 break;
         }

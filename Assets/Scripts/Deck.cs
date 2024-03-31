@@ -11,8 +11,8 @@ public class Deck : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //GenerateCard(true);
-        StartCoroutine(GenerateMonster());
+        GenerateCard(true);
+        //StartCoroutine(GenerateMonster());
     }
 
     public void GenerateCard(bool monstruo)

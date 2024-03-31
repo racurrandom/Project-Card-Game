@@ -75,8 +75,13 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 87cd6f6ff5f62cd478bf11155e4f3526, type: 2}
   moveSpeed: 14
   Faces:
+  - {fileID: 2100000, guid: b6a75061af5d8e647a7a248548d4b3a6, type: 2}
   - {fileID: 2100000, guid: 2ba62a673eed90a4daeedf0e4ed08e95, type: 2}
+  - {fileID: 2100000, guid: b648ac378c3950e4cbd85ae0f209b652, type: 2}
+  - {fileID: 2100000, guid: 9a545245c9643b0429969865de38f34d, type: 2}
   - {fileID: 2100000, guid: 1cd1f42626805d543b38a0ff13e13def, type: 2}
+  - {fileID: 2100000, guid: c3cd8f78a4ac51c4283fad9866b8bf67, type: 2}
+  - {fileID: 2100000, guid: b422cb1dadd998a4a980f83ea3f18443, type: 2}
 --- !u!1001 &2093296742166260462
 PrefabInstance:
   m_ObjectHideFlags: 0
