@@ -7,7 +7,7 @@ public class Menu_Control : MonoBehaviour
 {
     public void PlayButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Scenes/Scene Game/Game");
     }
 
     public void ExitButton()
