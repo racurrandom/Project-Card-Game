@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Carta : MonoBehaviour
@@ -26,7 +27,9 @@ public class Carta : MonoBehaviour
     [HideInInspector] public GameObject handObj;
     public Hand hand => handObj.GetComponent<Hand>();
 
-    
+    //Eventos
+    public Action OnActivate;
+
 
     //Variables
     [HideInInspector] public Vector3 position;

@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Carta_Monstruo : Carta
 {
+    //Parameters
+    public int health = 1;
+    public int damage = 1;
+
 
     public enum Carta
     {
@@ -23,13 +27,17 @@ public class Carta_Monstruo : Carta
         //Select random card
         carta = (Carta)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(Carta)).Cast<Carta>().Max() + 1);
 
+        //Use correct front
         ChangeFront(carta.ToString());
+
+
+        
 
         switch (carta.ToString())
         {
             case "Chunky_Flying_Cat":
-               
 
+                
                 
 
                 break;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     public List<GameObject> cartas;
+    public List<GameObject> activeMonsters;
     public List<GameObject> targets;
     [SerializeField] float cardPadding;
     enum Player { player1, player2};
