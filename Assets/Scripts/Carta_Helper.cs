@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.Animations;
+using UnityEngine.Events;
 
 public class Carta_Helper : MonoBehaviour
 {
@@ -18,5 +19,9 @@ public class Carta_Helper : MonoBehaviour
 
     [Header("Materiales")]
     [SerializeField] public Material[] Faces;
-    
+
+
+
+   
+
 }

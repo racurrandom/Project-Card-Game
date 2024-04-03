@@ -28,7 +28,9 @@ public class Carta : MonoBehaviour
     public Hand hand => handObj.GetComponent<Hand>();
 
     //Eventos
-    public Action OnActivate;
+    protected delegate void ActivateAction();
+    protected event ActivateAction Activate;
+    
 
 
     //Variables
@@ -105,6 +107,7 @@ public class Carta : MonoBehaviour
     {
         if (placed) ShowHologram();
         if (onHand) PlaceCard();
+        if(Activate != null)Activate();
         
     }
 

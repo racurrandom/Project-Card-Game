@@ -11,6 +11,8 @@ public class Carta_Monstruo : Carta
     public int damage = 1;
 
 
+    protected Carta_Eventos Events = new Carta_Eventos();
+
     public enum Carta
     {
         Chunky_Flying_Cat,
@@ -32,13 +34,17 @@ public class Carta_Monstruo : Carta
 
 
         
+      
+        
+
+
 
         switch (carta.ToString())
         {
             case "Chunky_Flying_Cat":
 
-                
-                
+                Activate += Events.Test;
+
 
                 break;
 
@@ -54,8 +60,6 @@ public class Carta_Monstruo : Carta
 
 
     }
-
-
 
 
 }
