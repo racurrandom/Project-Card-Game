@@ -15,8 +15,10 @@ public class Carta_Monstruo : Carta
 
     public enum Carta
     {
-        Chunky_Flying_Cat,
-        Mighty_Dragon
+        Chonky_Flying_Cat,
+        Mighty_Dragon,
+        The_Dead_of_the_Cuteness,
+        Ethereal_Jellyfish
     }
 
     public Carta carta;
@@ -33,15 +35,9 @@ public class Carta_Monstruo : Carta
         ChangeFront(carta.ToString());
 
 
-        
-      
-        
-
-
-
         switch (carta.ToString())
         {
-            case "Chunky_Flying_Cat":
+            case "Chonky_Flying_Cat":
 
                 Activate += Events.Test;
 

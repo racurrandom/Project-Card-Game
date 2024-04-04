@@ -78,25 +78,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b6a75061af5d8e647a7a248548d4b3a6, type: 2}
   - {fileID: 2100000, guid: 2ba62a673eed90a4daeedf0e4ed08e95, type: 2}
   - {fileID: 2100000, guid: b648ac378c3950e4cbd85ae0f209b652, type: 2}
+  - {fileID: 2100000, guid: 590514e974c4c22468dbb52f2ff8f91a, type: 2}
   - {fileID: 2100000, guid: 9a545245c9643b0429969865de38f34d, type: 2}
   - {fileID: 2100000, guid: 1cd1f42626805d543b38a0ff13e13def, type: 2}
+  - {fileID: 2100000, guid: cd9314bf017543d4b8b0e5f94ac65c4d, type: 2}
   - {fileID: 2100000, guid: c3cd8f78a4ac51c4283fad9866b8bf67, type: 2}
   - {fileID: 2100000, guid: b422cb1dadd998a4a980f83ea3f18443, type: 2}
-  Action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  - {fileID: 2100000, guid: e60f206324706254a8872921f244a43c, type: 2}
 --- !u!1001 &2093296742166260462
 PrefabInstance:
   m_ObjectHideFlags: 0

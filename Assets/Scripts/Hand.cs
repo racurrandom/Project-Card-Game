@@ -29,6 +29,17 @@ public class Hand : MonoBehaviour
         UpdateCardsPlacement();
     }
 
+    public void AddActive(Carta carta)
+    {
+        activeMonsters.Add(carta.gameObject);
+
+    }
+
+    public void RemoveActive(Carta carta)
+    {
+        activeMonsters.Remove(carta.gameObject);
+    }
+
     public void UpdateCardsPlacement()
     {
        

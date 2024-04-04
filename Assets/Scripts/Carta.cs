@@ -36,6 +36,7 @@ public class Carta : MonoBehaviour
     //Variables
     [HideInInspector] public Vector3 position;
     Vector3 displacement;
+    private int monsterIndex;
     
 
     //States
@@ -105,9 +106,9 @@ public class Carta : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        if (placed) ShowHologram();
+        if (placed) ToggleActivate();
         if (onHand) PlaceCard();
-        if(Activate != null)Activate();
+        
         
     }
 
@@ -146,9 +147,39 @@ public class Carta : MonoBehaviour
     }
 
 
+    private void ToggleActivate()
+    {
+        //se cambia de estado
+        active = !active;
+
+
+
+        //se añade a la lista de activos de su mano si es monstruo
+        if (tipo == Tipo.Mounstruo)
+        {
+            if (active)
+            {
+                hand.AddActive(this);
+                ShowHologram();
+
+                //realizamos la accion Activate
+                if (Activate != null) Activate();
+            }
+            else
+            {
+                hand.RemoveActive(this);
+
+
+            }
+            
+           
+        }
+
+        
+    }
+
     private void ShowHologram()
     {
-
         GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * hologramHieght / 10, Quaternion.Euler(Vector3.zero), null);
         obj.transform.localScale = Vector3.one * hologramSize / 100;
         obj.SetActive(true);

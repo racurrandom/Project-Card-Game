@@ -12,6 +12,7 @@ public class Carta_Hechizo : Carta
         Healing_Potion,
         Fire_Crystal,
         Magical_Wand,
+        Mindbender_Mushrooms
     }
 
     public Carta carta;
@@ -19,7 +20,7 @@ public class Carta_Hechizo : Carta
     protected override void Start()
     {
         base.Start();
-        tipo = Tipo.Mounstruo;
+        tipo = Tipo.Hechizo;
 
         //Select random card
         carta = (Carta)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(Carta)).Cast<Carta>().Max() + 1);

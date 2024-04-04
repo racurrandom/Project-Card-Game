@@ -9,8 +9,13 @@ public class Carta_Eventos : MonoBehaviour
 
     public void Test()
     {
-        Debug.Log("a la verga Bv");
+        Debug.Log("Esto es un test");
     }
+
+
+
+
+
 
 
 }

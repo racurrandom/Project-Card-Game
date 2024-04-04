@@ -12,7 +12,8 @@ public class Carta_Equipo : Carta
     {
         Power_Vanisher,
         Force_Redistribution,
-        Temporary_Cage
+        Temporary_Cage,
+        Golden_Key
 
     }
 
@@ -21,7 +22,7 @@ public class Carta_Equipo : Carta
     protected override void Start()
     {
         base.Start();
-        tipo = Tipo.Mounstruo;
+        tipo = Tipo.Equipo;
 
         //Select random card
         carta = (Carta)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(Carta)).Cast<Carta>().Max() + 1);
