@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    //Listas de cartas
     public List<GameObject> cartas;
     public List<GameObject> activeMonsters;
     public List<GameObject> targets;
+
+    //Variables
     [SerializeField] float cardPadding;
-    enum Player { player1, player2};
-    [SerializeField] Player player;
+
+    //Enums
+    public enum Player { player1, player2};
+    [SerializeField] public Player player;
 
     private void Start()
     {
@@ -25,12 +30,16 @@ public class Hand : MonoBehaviour
 
     public void AddCard(Carta carta)
     {
+        //Se mete la carta a las cartas de la mano
         cartas.Add(carta.gameObject);
+
+        //Se actualizan sus posiciones
         UpdateCardsPlacement();
     }
 
     public void AddActive(Carta carta)
     {
+        //Se añade la carta a monstruos activos
         activeMonsters.Add(carta.gameObject);
 
     }

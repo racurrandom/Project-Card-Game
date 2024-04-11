@@ -23,10 +23,18 @@ public class Carta_Monstruo : Carta
 
     public Carta carta;
 
+    protected override void Placed()
+    {
+        base.Placed();
+        
+        if(active) displacement += Vector3.up * 0.3f;
+
+    }
+
     protected override void Start()
     {
         base.Start();
-        tipo = Tipo.Mounstruo;
+        tipo = Tipo.Monstruo;
 
         //Select random card
         carta = (Carta)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(Carta)).Cast<Carta>().Max() + 1);

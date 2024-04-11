@@ -35,9 +35,7 @@ public class Carta : MonoBehaviour
 
     //Variables
     [HideInInspector] public Vector3 position;
-    Vector3 displacement;
-    private int monsterIndex;
-    
+    protected Vector3 displacement;
 
     //States
     [HideInInspector] public bool onHand;
@@ -47,7 +45,7 @@ public class Carta : MonoBehaviour
 
     public enum Tipo
     {
-        Mounstruo,
+        Monstruo,
         Hechizo,
         Equipo
     }
@@ -91,16 +89,18 @@ public class Carta : MonoBehaviour
         if (beingHovered) displacement = Vector3.up * 0.2f;
 
         //Mirar a la camara
-        transform.LookAt(Camera.main.transform.position, Vector3.up);
+        if(hand.player == Hand.Player.player1) transform.LookAt(Camera.main.transform.position, Vector3.up);
 
+        
         
     }
 
-    void Placed()
+    protected virtual void Placed()
     {
         //Levantar la carta si tiene el raton encima
         if (beingHovered) displacement = Vector3.up * 0.1f;
-       
+
+        
 
     }
 
@@ -147,20 +147,21 @@ public class Carta : MonoBehaviour
     }
 
 
-    private void ToggleActivate()
+    public virtual void ToggleActivate()
     {
         //se cambia de estado
         active = !active;
 
-
-
         //se añade a la lista de activos de su mano si es monstruo
-        if (tipo == Tipo.Mounstruo)
+        if (tipo == Tipo.Monstruo)
         {
+
+            ToggleHologram();
+
             if (active)
             {
                 hand.AddActive(this);
-                ShowHologram();
+               
 
                 //realizamos la accion Activate
                 if (Activate != null) Activate();
@@ -168,7 +169,7 @@ public class Carta : MonoBehaviour
             else
             {
                 hand.RemoveActive(this);
-
+                
 
             }
             
@@ -178,11 +179,22 @@ public class Carta : MonoBehaviour
         
     }
 
-    private void ShowHologram()
+    private void ToggleHologram()
     {
-        GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * hologramHieght / 10, Quaternion.Euler(Vector3.zero), null);
-        obj.transform.localScale = Vector3.one * hologramSize / 100;
-        obj.SetActive(true);
+
+        if (active)
+        {
+            GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * hologramHieght / 10, Quaternion.Euler(Vector3.zero), transform);
+            obj.transform.localScale = Vector3.one * hologramSize / 100;
+            obj.name = "holograma";
+            obj.SetActive(true);
+        }
+        else
+        {
+            Destroy(transform.Find("holograma").gameObject);
+        }
+
+
 
     }
 

@@ -11,16 +11,14 @@ public class Deck : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GenerateCard(true);
+        GenerateCard(Hand,true);
         //StartCoroutine(GenerateMonster());
     }
 
-    public void GenerateCard(bool monstruo)
+    public void GenerateCard(GameObject _Hand, bool monstruo)
     {
         //Se crea la carta
         GameObject obj = Instantiate(carta, transform.position + Vector3.up, transform.rotation);
-
-        
 
         //Se crea carta de hechizo o equipo aleatoriamente
         switch (Random.Range(0, 2))
@@ -34,19 +32,19 @@ public class Deck : MonoBehaviour
         }
 
         //Inicializacion
-        obj.GetComponent<Carta>().handObj = Hand;
+        obj.GetComponent<Carta>().handObj = _Hand;
         obj.GetComponent<Carta>().onHand = true;
         obj.GetComponent<Carta>().active = false;
 
         //Se añade a la mano 
-        Hand.GetComponent<Hand>().AddCard(obj.GetComponent<Carta>());
+        _Hand.GetComponent<Hand>().AddCard(obj.GetComponent<Carta>());
 
         //Se crea la carta de monstruo 
-        if (monstruo) StartCoroutine(GenerateMonster());
+        if (monstruo) StartCoroutine(GenerateMonster(_Hand));
         
     }
 
-    private IEnumerator GenerateMonster()
+    private IEnumerator GenerateMonster(GameObject _Hand)
     {
         //Espera 0.5 segundo a generar la carta 
         yield return new WaitForSeconds(0.5f);
@@ -58,12 +56,12 @@ public class Deck : MonoBehaviour
         obj.AddComponent<Carta_Monstruo>();
 
         //Inicializacion
-        obj.GetComponent<Carta>().handObj = Hand;
+        obj.GetComponent<Carta>().handObj = _Hand;
         obj.GetComponent<Carta>().onHand = true;
         obj.GetComponent<Carta>().active = false;
 
         //Se añade a la mano 
-        Hand.GetComponent<Hand>().AddCard(obj.GetComponent<Carta>());
+        _Hand.GetComponent<Hand>().AddCard(obj.GetComponent<Carta>());
     }
 
 
