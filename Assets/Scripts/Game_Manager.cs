@@ -4,14 +4,32 @@ using UnityEngine;
 
 public class Game_Manager : MonoBehaviour
 {
-    [HideInInspector] public Hand ActiveHand;
+    //Players
+    [HideInInspector] public Hand activeHand;
+    [SerializeField] Hand player;
+    [SerializeField] Hand enemy;
 
-    [SerializeField] Deck Deck;
+
+    //Componets
+    [SerializeField] Deck deck;
+
+
+
+    //Variables
+    public enum State { Placing, Activating, Atacking};
+    public State state;
+
 
     //TEMPORAL
-    [SerializeField] Hand Enemy;
+    
 
 
+
+    private void Start()
+    {
+        state = State.Placing;
+        
+    }
 
 
     private void Update()
@@ -24,7 +42,27 @@ public class Game_Manager : MonoBehaviour
 
     void GiveCardToEnemy()
     {
-        Deck.GenerateCard(Enemy.gameObject, true);
+        deck.GenerateCard(enemy.gameObject, true);
+    }
+
+
+
+
+
+
+    bool Advance()
+    {
+
+        if(((int)state) == 2)
+        {
+            state = State.Placing;
+            return true;
+        }
+
+        state++;
+
+        return false;
+        
     }
 
 }
