@@ -7,10 +7,14 @@ public class Hand : MonoBehaviour
     //Listas de cartas
     public List<GameObject> cartas;
     public List<GameObject> activeMonsters;
+    public List<GameObject> attackingMonsters;
     public List<GameObject> targets;
 
     //Variables
     [SerializeField] float cardPadding;
+
+    //Components
+    [HideInInspector] public Game_Manager game;
 
     //Enums
     public enum Player { player1, player2};
@@ -18,7 +22,11 @@ public class Hand : MonoBehaviour
 
     private void Start()
     {
-        
+        //Get game
+        game = GameObject.Find("GameManager").GetComponent<Game_Manager>();
+
+
+        //Get all targets
         foreach (Target target in GameObject.FindObjectsOfType<Target>())
         {
             if(target.player.ToString() == player.ToString())
@@ -28,26 +36,7 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public void AddCard(Carta carta)
-    {
-        //Se mete la carta a las cartas de la mano
-        cartas.Add(carta.gameObject);
-
-        //Se actualizan sus posiciones
-        UpdateCardsPlacement();
-    }
-
-    public void AddActive(Carta carta)
-    {
-        //Se añade la carta a monstruos activos
-        activeMonsters.Add(carta.gameObject);
-
-    }
-
-    public void RemoveActive(Carta carta)
-    {
-        activeMonsters.Remove(carta.gameObject);
-    }
+    
 
     public void UpdateCardsPlacement()
     {
@@ -77,6 +66,39 @@ public class Hand : MonoBehaviour
         }
     }
 
+    public void AddCard(Carta carta)
+    {
+        //Se mete la carta a las cartas de la mano
+        cartas.Add(carta.gameObject);
+
+        //Se actualizan sus posiciones
+        UpdateCardsPlacement();
+    }
+
+    public void AddActive(Carta carta)
+    {
+        //Se añade la carta a monstruos activos
+        activeMonsters.Add(carta.gameObject);
+
+    }
+
+    public void RemoveActive(Carta carta)
+    {
+        activeMonsters.Remove(carta.gameObject);
+    }
+
+
+    public void AddAttacker(Carta carta)
+    {
+        //Se añade la carta a monstruos activos
+        attackingMonsters.Add(carta.gameObject);
+
+    }
+
+    public void RemoveAttacker(Carta carta)
+    {
+        attackingMonsters.Remove(carta.gameObject);
+    }
     private void Update()
     {
         

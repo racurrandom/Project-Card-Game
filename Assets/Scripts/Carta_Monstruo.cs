@@ -31,6 +31,32 @@ public class Carta_Monstruo : Carta
 
     }
 
+    public override void ToggleActivate()
+    {
+        //se cambia de estado
+        active = !active;
+
+        
+        ToggleHologram();
+
+        //se añade a la lista de activos de su mano si es monstruo
+        if (active)
+        {
+            hand.AddActive(this);
+
+            DoActivate();
+        }
+        else
+        {
+            hand.RemoveActive(this);
+
+        }
+
+
+        
+    }
+
+
     protected override void Start()
     {
         base.Start();

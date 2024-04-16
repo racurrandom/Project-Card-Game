@@ -26,16 +26,16 @@ public class Carta : MonoBehaviour
     //Components
     [HideInInspector] public GameObject handObj;
     public Hand hand => handObj.GetComponent<Hand>();
+    Game_Manager game => hand.game;
 
     //Eventos
     protected delegate void ActivateAction();
     protected event ActivateAction Activate;
-    
-
 
     //Variables
     [HideInInspector] public Vector3 position;
     protected Vector3 displacement;
+    protected Game_Manager.State state => game.state;
 
     //States
     [HideInInspector] public bool onHand;
@@ -106,8 +106,27 @@ public class Carta : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        if (placed) ToggleActivate();
-        if (onHand) PlaceCard();
+        switch (state)
+        {
+            case Game_Manager.State.Placing:
+
+                if (onHand) PlaceCard();
+
+                break;
+
+            case Game_Manager.State.Activating:
+
+                if (placed) ToggleActivate();
+
+                break;
+
+            case Game_Manager.State.Attacking:
+
+                break;
+        }
+
+        
+        
         
         
     }
@@ -161,7 +180,6 @@ public class Carta : MonoBehaviour
             if (active)
             {
                 hand.AddActive(this);
-               
 
                 //realizamos la accion Activate
                 if (Activate != null) Activate();
@@ -170,7 +188,6 @@ public class Carta : MonoBehaviour
             {
                 hand.RemoveActive(this);
                 
-
             }
             
            
@@ -179,7 +196,7 @@ public class Carta : MonoBehaviour
         
     }
 
-    private void ToggleHologram()
+    protected void ToggleHologram()
     {
 
         if (active)
@@ -219,4 +236,9 @@ public class Carta : MonoBehaviour
 
     }
 
+
+    protected void DoActivate()
+    {
+        if (Activate != null) Activate();
+    }
 }

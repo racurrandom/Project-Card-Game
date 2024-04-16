@@ -5,7 +5,7 @@ using UnityEngine;
 public class Game_Manager : MonoBehaviour
 {
     //Players
-    [HideInInspector] public Hand activeHand;
+     public Hand activeHand;
     [SerializeField] Hand player;
     [SerializeField] Hand enemy;
 
@@ -16,7 +16,7 @@ public class Game_Manager : MonoBehaviour
 
 
     //Variables
-    public enum State { Placing, Activating, Atacking};
+    public enum State { Placing, Activating, Attacking};
     public State state;
 
 
@@ -28,7 +28,7 @@ public class Game_Manager : MonoBehaviour
     private void Start()
     {
         state = State.Placing;
-        
+        activeHand = player;
     }
 
 
@@ -38,6 +38,11 @@ public class Game_Manager : MonoBehaviour
         {
             GiveCardToEnemy();
         }
+
+        if (Input.GetKeyDown("p"))
+        {
+            Advance();
+        }
     }
 
     void GiveCardToEnemy()
@@ -46,16 +51,18 @@ public class Game_Manager : MonoBehaviour
     }
 
 
-
-
-
-
     bool Advance()
     {
+
+       
 
         if(((int)state) == 2)
         {
             state = State.Placing;
+
+            //Change active player
+            activeHand = activeHand == player ? enemy : player;
+
             return true;
         }
 
