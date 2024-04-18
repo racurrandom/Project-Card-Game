@@ -11,6 +11,11 @@ public class Carta_Monstruo : Carta
     public int damage = 1;
 
 
+    //States
+    bool defense = false;
+    bool attack = false;
+
+
     protected Carta_Eventos Events = new Carta_Eventos();
 
     public enum Carta
@@ -35,9 +40,11 @@ public class Carta_Monstruo : Carta
     {
         //se cambia de estado
         active = !active;
-
+        defense = !defense;
         
-        ToggleHologram();
+        ToggleHologram(hologramMat);
+
+        print("a");
 
         //se añade a la lista de activos de su mano si es monstruo
         if (active)
@@ -49,11 +56,55 @@ public class Carta_Monstruo : Carta
         else
         {
             hand.RemoveActive(this);
+        }
+    }
 
+    public void ToggleAttack()
+    {
+        //se cambia de estado
+        active = !active;
+        attack = !attack;
+
+        ToggleHologram(hologramMatAttack);
+
+        //se añade a la lista de activos de su mano si es monstruo
+        if (active)
+        {
+            hand.AddAttacker(this);
+
+            DoActivate();
+        }
+        else
+        {
+            hand.RemoveAttacker(this);
         }
 
 
-        
+
+    }
+
+    protected override void OnMouseDown()
+    {
+        switch (state)
+        {
+            case Game_Manager.State.Placing:
+
+                if (onHand) PlaceCard();
+
+                break;
+
+            case Game_Manager.State.Activating:
+
+                if (placed) ToggleActivate();
+
+                break;
+
+            case Game_Manager.State.Attacking:
+
+                if (!defense) ToggleAttack();
+
+                break;
+        }
     }
 
 
@@ -86,6 +137,28 @@ public class Carta_Monstruo : Carta
                 break;
         }
 
+
+
+
+    }
+
+
+
+    protected void ToggleHologram(Material mat)
+    {
+
+        if (active)
+        {
+            GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * hologramHieght / 10, Quaternion.Euler(Vector3.zero), transform);
+            obj.transform.localScale = Vector3.one * hologramSize / 100;
+            obj.name = "holograma";
+            obj.SetActive(true);
+            obj.GetComponent<MeshRenderer>().material = mat;
+        }
+        else
+        {
+            Destroy(transform.Find("holograma").gameObject);
+        }
 
 
 

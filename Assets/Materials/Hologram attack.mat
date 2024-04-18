@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hologram
+  m_Name: Hologram attack
   m_Shader: {fileID: -6465566751694194690, guid: 38eef1d5ffa28624096992f71d0b30b7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -58,5 +58,6 @@ Material:
     - _QueueOffset: 0
     - _lineSpacing: 13.65
     - _scrollingSpeed: -0.43
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 0.40205154, g: 5.0138183, b: 0.6807848, a: 0}
   m_BuildTextureStacks: []

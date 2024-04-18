@@ -12,6 +12,8 @@ public class Hand : MonoBehaviour
 
     //Variables
     [SerializeField] float cardPadding;
+    public int health = 20;
+
 
     //Components
     [HideInInspector] public Game_Manager game;

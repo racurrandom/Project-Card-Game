@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hologramMat: {fileID: 2100000, guid: 7c5a67237de792148a7e38f3d3c918a8, type: 2}
+  hologramMatAttack: {fileID: 2100000, guid: 5edaeb05c75fe734a84c6c5420db3479, type: 2}
   holoController: {fileID: 9100000, guid: 6cfa9d7b97f94444abf8a2763153ee79, type: 2}
   hologramHieght: 4
   hologramSize: 2

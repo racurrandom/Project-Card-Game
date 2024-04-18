@@ -5,7 +5,8 @@ using UnityEngine;
 public class Game_Manager : MonoBehaviour
 {
     //Players
-     public Hand activeHand;
+    public Hand activeHand;
+    public Hand watingHand;
     [SerializeField] Hand player;
     [SerializeField] Hand enemy;
 
@@ -29,6 +30,7 @@ public class Game_Manager : MonoBehaviour
     {
         state = State.Placing;
         activeHand = player;
+        watingHand = enemy;
     }
 
 
@@ -41,7 +43,7 @@ public class Game_Manager : MonoBehaviour
 
         if (Input.GetKeyDown("p"))
         {
-            Advance();
+            Pass();
         }
     }
 
@@ -51,17 +53,52 @@ public class Game_Manager : MonoBehaviour
     }
 
 
+    public void Pass()
+    {
+        Advance();
+
+
+
+    }
+
+
+
+    void Attack()
+    {
+        int damage = 0;
+        int defense = 0;
+
+
+        foreach(GameObject carta in activeHand.attackingMonsters)
+        {
+
+            damage += carta.GetComponent<Carta_Monstruo>().damage;
+
+        }
+
+        foreach (GameObject carta in watingHand.activeMonsters)
+        {
+
+            defense += carta.GetComponent<Carta_Monstruo>().health;
+
+        }
+
+
+
+
+
+    }
+
+
     bool Advance()
     {
-
-       
-
         if(((int)state) == 2)
         {
             state = State.Placing;
 
             //Change active player
             activeHand = activeHand == player ? enemy : player;
+            watingHand = watingHand == player ? enemy : player;
 
             return true;
         }

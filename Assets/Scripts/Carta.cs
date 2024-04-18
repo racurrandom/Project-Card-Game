@@ -10,12 +10,13 @@ using UnityEngine.UI;
 public class Carta : MonoBehaviour
 {
     //Holograma
-    [SerializeField] private Material hologramMat => GetComponent<Carta_Helper>().hologramMat;
-    [SerializeField] private AnimatorController holoController => GetComponent<Carta_Helper>().holoController;
-    [SerializeField] private float hologramHieght => GetComponent<Carta_Helper>().hologramHieght;
-    [SerializeField] private float hologramSize => GetComponent<Carta_Helper>().hologramSize;
-    [SerializeField] private Mesh[] models => GetComponent<Carta_Helper>().models;
-    private GameObject hologram;
+    [SerializeField] protected Material hologramMat => GetComponent<Carta_Helper>().hologramMat;
+    [SerializeField] protected Material hologramMatAttack => GetComponent<Carta_Helper>().hologramMatAttack;
+    [SerializeField] protected AnimatorController holoController => GetComponent<Carta_Helper>().holoController;
+    [SerializeField] protected float hologramHieght => GetComponent<Carta_Helper>().hologramHieght;
+    [SerializeField] protected float hologramSize => GetComponent<Carta_Helper>().hologramSize;
+    [SerializeField] protected Mesh[] models => GetComponent<Carta_Helper>().models;
+    protected GameObject hologram;
 
     //Animacion
     [SerializeField] private float moveSpeed => GetComponent<Carta_Helper>().moveSpeed;
@@ -142,7 +143,7 @@ public class Carta : MonoBehaviour
         beingHovered = false;
     }
 
-    void PlaceCard()
+    protected void PlaceCard()
     {
 
         //Check si hay lugar disponible 
@@ -175,7 +176,7 @@ public class Carta : MonoBehaviour
         if (tipo == Tipo.Monstruo)
         {
 
-            ToggleHologram();
+            
 
             if (active)
             {
@@ -196,24 +197,7 @@ public class Carta : MonoBehaviour
         
     }
 
-    protected void ToggleHologram()
-    {
-
-        if (active)
-        {
-            GameObject obj = Instantiate(hologram, this.transform.position + Vector3.up * hologramHieght / 10, Quaternion.Euler(Vector3.zero), transform);
-            obj.transform.localScale = Vector3.one * hologramSize / 100;
-            obj.name = "holograma";
-            obj.SetActive(true);
-        }
-        else
-        {
-            Destroy(transform.Find("holograma").gameObject);
-        }
-
-
-
-    }
+    
 
     protected void ChangeFront(String name)
     {
