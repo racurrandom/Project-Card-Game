@@ -7,8 +7,8 @@ public class Game_Manager : MonoBehaviour
     //Players
     public Hand activeHand;
     public Hand watingHand;
-    [SerializeField] Hand player;
-    [SerializeField] Hand enemy;
+    public Hand player;
+    public Hand enemy;
 
 
     //Componets
@@ -55,7 +55,7 @@ public class Game_Manager : MonoBehaviour
 
     public void Pass()
     {
-        Advance();
+        if (Advance()) Attack();
 
 
 
@@ -69,22 +69,27 @@ public class Game_Manager : MonoBehaviour
         int defense = 0;
 
 
-        foreach(GameObject carta in activeHand.attackingMonsters)
+        foreach(GameObject carta in watingHand.attackingMonsters)
         {
 
             damage += carta.GetComponent<Carta_Monstruo>().damage;
 
         }
 
-        foreach (GameObject carta in watingHand.activeMonsters)
+        foreach (GameObject carta in activeHand.activeMonsters)
         {
+            int prevdamage = damage;
+            damage -= carta.GetComponent<Carta_Monstruo>().health;
 
-            defense += carta.GetComponent<Carta_Monstruo>().health;
+            if (damage < 0) damage = 0;
+
+            carta.GetComponent<Carta_Monstruo>().health = prevdamage - damage;
 
         }
 
 
-
+        activeHand.health -= damage;
+        if (activeHand.health < 0) activeHand.health = 0;
 
 
     }

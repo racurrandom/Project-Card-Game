@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Carta_Monstruo : Carta
@@ -10,6 +11,10 @@ public class Carta_Monstruo : Carta
     public int health = 1;
     public int damage = 1;
 
+    //Componets
+    [SerializeField] GameObject stats => GetComponent<Carta_Helper>().stats;
+    [SerializeField] TextMeshPro attackNum => GetComponent<Carta_Helper>().attackNum;
+    [SerializeField] TextMeshPro healthNum => GetComponent<Carta_Helper>().healthNum;
 
     //States
     bool defense = false;
@@ -85,25 +90,28 @@ public class Carta_Monstruo : Carta
 
     protected override void OnMouseDown()
     {
-        switch (state)
+        if (activeHand == hand.name)
         {
-            case Game_Manager.State.Placing:
+            switch (state)
+            {
+                case Game_Manager.State.Placing:
 
-                if (onHand) PlaceCard();
+                    if (onHand) PlaceCard();
 
-                break;
+                    break;
 
-            case Game_Manager.State.Activating:
+                case Game_Manager.State.Activating:
 
-                if (placed) ToggleActivate();
+                    if (placed) ToggleActivate();
 
-                break;
+                    break;
 
-            case Game_Manager.State.Attacking:
+                case Game_Manager.State.Attacking:
 
-                if (!defense) ToggleAttack();
+                    if (placed && !defense) ToggleAttack();
 
-                break;
+                    break;
+            }
         }
     }
 
@@ -112,6 +120,11 @@ public class Carta_Monstruo : Carta
     {
         base.Start();
         tipo = Tipo.Monstruo;
+
+        //Initialize stats info
+        stats.SetActive(true);
+        attackNum.text = damage.ToString();
+        healthNum.text = health.ToString();
 
         //Select random card
         carta = (Carta)UnityEngine.Random.Range(0, (int)Enum.GetValues(typeof(Carta)).Cast<Carta>().Max() + 1);

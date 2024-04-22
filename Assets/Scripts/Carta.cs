@@ -37,6 +37,7 @@ public class Carta : MonoBehaviour
     [HideInInspector] public Vector3 position;
     protected Vector3 displacement;
     protected Game_Manager.State state => game.state;
+    protected String activeHand => game.activeHand.gameObject.name;
 
     //States
     [HideInInspector] public bool onHand;
@@ -107,29 +108,28 @@ public class Carta : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        switch (state)
-        {
-            case Game_Manager.State.Placing:
 
-                if (onHand) PlaceCard();
+        if (activeHand == hand.name) {
+            switch (state)
+            {
+                case Game_Manager.State.Placing:
 
-                break;
+                    if (onHand) PlaceCard();
 
-            case Game_Manager.State.Activating:
+                    break;
 
-                if (placed) ToggleActivate();
+                case Game_Manager.State.Activating:
 
-                break;
+                    if (placed) ToggleActivate();
 
-            case Game_Manager.State.Attacking:
+                    break;
 
-                break;
+                case Game_Manager.State.Attacking:
+
+                    break;
+            }
+
         }
-
-        
-        
-        
-        
     }
 
     private void OnMouseOver()
