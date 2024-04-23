@@ -1875,8 +1875,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57.94
-  m_fontSizeBase: 57.94
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2069,12 +2069,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 548468343}
     m_Modifications:
     - target: {fileID: 1652074503759764348, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
+      propertyPath: health
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652074503759764348, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
       propertyPath: player
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1652074503759764348, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
       propertyPath: cardPadding
-      value: 0.9
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2802098719180241825, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
       propertyPath: m_LocalPosition.x
