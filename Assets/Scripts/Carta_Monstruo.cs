@@ -7,9 +7,7 @@ using UnityEngine;
 
 public class Carta_Monstruo : Carta
 {
-    //Parameters
-    public int health = 1;
-    public int damage = 1;
+    
 
     //Componets
     [SerializeField] GameObject stats => GetComponent<Carta_Helper>().stats;
@@ -21,7 +19,21 @@ public class Carta_Monstruo : Carta
     bool attack = false;
 
 
-    protected Carta_Eventos Events = new Carta_Eventos();
+    
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if(health <= 0)
+        {
+            hand.RemoveActive(this);
+            hand.RemoveAttacker(this);
+            hand.RemoveCard(this);
+
+            Destroy(this.gameObject);
+        }
+    }
 
     public enum Carta
     {

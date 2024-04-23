@@ -76,6 +76,9 @@ public class Game_Manager : MonoBehaviour
 
         }
 
+
+        
+
         foreach (GameObject carta in activeHand.activeMonsters)
         {
             int prevdamage = damage;
@@ -83,7 +86,8 @@ public class Game_Manager : MonoBehaviour
 
             if (damage < 0) damage = 0;
 
-            carta.GetComponent<Carta_Monstruo>().health = prevdamage - damage;
+            carta.GetComponent<Carta_Monstruo>().health -= prevdamage - damage;
+            
 
         }
 

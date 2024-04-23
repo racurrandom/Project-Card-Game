@@ -24,6 +24,8 @@ public class Carta : MonoBehaviour
     //Materiales
     [SerializeField] protected Material[] Faces => GetComponent<Carta_Helper>().Faces;
 
+    
+
     //Components
     [HideInInspector] public GameObject handObj;
     public Hand hand => handObj.GetComponent<Hand>();
@@ -32,6 +34,7 @@ public class Carta : MonoBehaviour
     //Eventos
     protected delegate void ActivateAction();
     protected event ActivateAction Activate;
+    public Carta_Eventos Events = new Carta_Eventos();
 
     //Variables
     [HideInInspector] public Vector3 position;
@@ -45,20 +48,27 @@ public class Carta : MonoBehaviour
     [HideInInspector] public bool active;
     [HideInInspector] bool beingHovered;
 
+    //Parameters
+    public int health = 1;
+    public int damage = 1;
+
+    //Enums
     public enum Tipo
     {
         Monstruo,
         Hechizo,
         Equipo
     }
-
     [HideInInspector] public Tipo tipo;
 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        Events.carta = this;
+
         hologram = new GameObject();
+
 
         MeshFilter filter = hologram.AddComponent<MeshFilter>();
         MeshRenderer renderer = hologram.AddComponent<MeshRenderer>();
@@ -74,7 +84,7 @@ public class Carta : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, position + displacement, moveSpeed * Time.deltaTime);
         displacement = Vector3.zero;
@@ -173,26 +183,25 @@ public class Carta : MonoBehaviour
         active = !active;
 
         //se añade a la lista de activos de su mano si es monstruo
-        if (tipo == Tipo.Monstruo)
-        {
+        
 
             
 
-            if (active)
-            {
-                hand.AddActive(this);
+        if (active)
+        {
+               
 
-                //realizamos la accion Activate
-                if (Activate != null) Activate();
-            }
-            else
-            {
-                hand.RemoveActive(this);
+            //realizamos la accion Activate
+            if (Activate != null) Activate();
+        }
+        else
+        {
                 
-            }
+                
+        }
             
            
-        }
+        
 
         
     }
@@ -225,4 +234,14 @@ public class Carta : MonoBehaviour
     {
         if (Activate != null) Activate();
     }
+
+    public void GetDestroyed()
+    {
+        hand.RemoveActive(this);
+        hand.RemoveAttacker(this);
+        hand.RemoveCard(this);
+
+        Destroy(this.gameObject);
+    }
+
 }

@@ -77,6 +77,11 @@ public class Hand : MonoBehaviour
         UpdateCardsPlacement();
     }
 
+    public void RemoveCard(Carta carta)
+    {
+        cartas.Remove(carta.gameObject);
+    }
+
     public void AddActive(Carta carta)
     {
         //Se añade la carta a monstruos activos
@@ -94,6 +99,8 @@ public class Hand : MonoBehaviour
     {
         //Se añade la carta a monstruos activos
         attackingMonsters.Add(carta.gameObject);
+
+        
 
     }
 
