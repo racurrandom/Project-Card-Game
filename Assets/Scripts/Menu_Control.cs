@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu_Control : MonoBehaviour
 {
 
     [SerializeField] GameObject Main;
     [SerializeField] GameObject Options;
+    [SerializeField] TMP_Dropdown BlindOptions;
 
     private void Start()
     {
@@ -32,6 +36,11 @@ public class Menu_Control : MonoBehaviour
     }
 
 
+    public void UpdateBlindOptions()
+    {
+        Settings._currentType = BlindOptions.value;
+
+    }
 
 
 

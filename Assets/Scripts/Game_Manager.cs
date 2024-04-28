@@ -22,6 +22,7 @@ public class Game_Manager : MonoBehaviour
 
 
     //TEMPORAL
+
     
 
 
@@ -66,7 +67,7 @@ public class Game_Manager : MonoBehaviour
     void Attack()
     {
         int damage = 0;
-        int defense = 0;
+       
 
 
         foreach(GameObject carta in watingHand.attackingMonsters)
