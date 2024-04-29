@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class Game_Manager : MonoBehaviour
 {
+
+    private static Game_Manager game;
+
+
     //Players
-    public Hand activeHand;
-    public Hand watingHand;
-    public Hand player;
-    public Hand enemy;
+    private Hand _activeHand;
+    public static Hand activeHand => game._activeHand;
+
+    private Hand _watingHand;
+    public static Hand watingHand => game._watingHand;
+
+    private Hand _player;
+    public static Hand player => game._player;
+
+    private Hand _enemy;
+    public static Hand enemy => game._enemy;
 
 
     //Componets
     [SerializeField] Deck deck;
-
-
+    Settings settings;
 
     //Variables
     public enum State { Placing, Activating, Attacking};
@@ -23,15 +33,45 @@ public class Game_Manager : MonoBehaviour
 
     //TEMPORAL
 
-    
+    private void Awake()
+    {
+        //New level
+        if (game)
+        {
+            game.NewLoad();
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            NewLoad();
+            transform.SetParent(null);
+            DontDestroyOnLoad(gameObject);
+        }
 
+        
+    }
 
+    private void NewLoad()
+    {
+        game = this;
+        try
+        {
+            _player = GameObject.Find("Player").GetComponent<Hand>();
+            _enemy = GameObject.Find("Enemigo").GetComponent<Hand>();
+        }
+        catch 
+        {
+
+        }
+
+    }
 
     private void Start()
     {
         state = State.Placing;
-        activeHand = player;
-        watingHand = enemy;
+        _activeHand = player;
+        _watingHand = enemy;
     }
 
 
@@ -107,8 +147,8 @@ public class Game_Manager : MonoBehaviour
             state = State.Placing;
 
             //Change active player
-            activeHand = activeHand == player ? enemy : player;
-            watingHand = watingHand == player ? enemy : player;
+            _activeHand = activeHand == player ? enemy : player;
+            _watingHand = watingHand == player ? enemy : player;
 
             return true;
         }

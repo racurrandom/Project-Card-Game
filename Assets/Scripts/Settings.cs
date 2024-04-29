@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Settings : MonoBehaviour
+public class Settings 
 {
     //Daltonicos
-    public static bool modoDaltonico;
+    public static bool modoDaltonico = false;
+    public static int _lastType = 0;
     public static int _currentType = 0;
     public static int blindType
     {
@@ -18,5 +19,7 @@ public class Settings : MonoBehaviour
         }
     }
 
+
+  
 
 }

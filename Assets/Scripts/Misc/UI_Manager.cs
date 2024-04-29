@@ -26,10 +26,10 @@ public class UI_Manager : MonoBehaviour
 
     private void Update()
     {
-        enemyHealth.value = game.enemy.health;
-        playerHealth.value = game.player.health;
+        enemyHealth.value = Game_Manager.enemy.health;
+        playerHealth.value = Game_Manager.player.health;
         
 
-        stateText.text = game.activeHand.name + " " + game.state.ToString();
+        stateText.text = Game_Manager.activeHand.name + " " + game.state.ToString();
     }
 }

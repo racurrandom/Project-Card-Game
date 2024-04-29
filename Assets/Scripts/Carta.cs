@@ -40,7 +40,7 @@ public class Carta : MonoBehaviour
     [HideInInspector] public Vector3 position;
     protected Vector3 displacement;
     protected Game_Manager.State state => game.state;
-    protected String activeHand => game.activeHand.gameObject.name;
+    protected String activeHand => Game_Manager.activeHand.gameObject.name;
 
     //States
     [HideInInspector] public bool onHand;

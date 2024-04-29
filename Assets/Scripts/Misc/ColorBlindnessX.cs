@@ -53,7 +53,7 @@ namespace SOHNE.Accessibility.ColorblindnessX
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else if (Instance != this)
             {
@@ -99,7 +99,7 @@ namespace SOHNE.Accessibility.ColorblindnessX
 
         public void InitChange()
         {
-            if (volumes == null) return;
+            if (volumes == null ) return;
 #if UNITY_EDITOR
             // TODO: Use a public event system to announce the change of the activated filter
             Debug.Log($"Color changed to <b>{(ColorblindTypes)currentType} {currentType}</b>/{maxType}");

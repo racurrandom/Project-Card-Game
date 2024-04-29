@@ -813,6 +813,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364724129}
   m_CullTransparentMesh: 1
+--- !u!1 &461169375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 534270697164072090, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+  m_PrefabInstance: {fileID: 474621380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &461169378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461169375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b8fbaa85b1fa545b6049e5969308f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeKey: 282
+--- !u!1001 &474621380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 515121667256340069, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 534270697164072090, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 534270697164072090, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 461169378}
+  m_SourcePrefab: {fileID: 100100000, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
 --- !u!1 &512298013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,11 +1324,23 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: Normal
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Protanopia
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Protanomaly
+      m_Image: {fileID: 0}
+    - m_Text: Deuteranopia
+      m_Image: {fileID: 0}
+    - m_Text: Deuteranomaly
+      m_Image: {fileID: 0}
+    - m_Text: Tritanopia
+      m_Image: {fileID: 0}
+    - m_Text: Tritanomaly
+      m_Image: {fileID: 0}
+    - m_Text: Achromatopsia
+      m_Image: {fileID: 0}
+    - m_Text: Achromatomaly
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1489,7 +1579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: Normal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9994d7e673594940b36261c82141e58, type: 2}
   m_sharedMaterial: {fileID: 7654968540719940938, guid: b9994d7e673594940b36261c82141e58, type: 2}
@@ -2388,6 +2478,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1269786219}
+        m_TargetAssemblyTypeName: Menu_Control, Assembly-CSharp
+        m_MethodName: ToggleModoDaltonico
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3325,7 +3427,6 @@ GameObject:
   - component: {fileID: 1840507701}
   - component: {fileID: 1840507700}
   - component: {fileID: 1840507703}
-  - component: {fileID: 1840507704}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3451,19 +3552,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &1840507704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840507699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b8fbaa85b1fa545b6049e5969308f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeKey: 282
 --- !u!1 &1969885023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,3 +3610,4 @@ SceneRoots:
   - {fileID: 1269786218}
   - {fileID: 1111398318}
   - {fileID: 1969885025}
+  - {fileID: 474621380}

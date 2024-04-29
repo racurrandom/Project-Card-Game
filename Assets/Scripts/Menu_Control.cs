@@ -1,3 +1,4 @@
+using SOHNE.Accessibility.ColorblindnessX;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,7 @@ public class Menu_Control : MonoBehaviour
     [SerializeField] GameObject Main;
     [SerializeField] GameObject Options;
     [SerializeField] TMP_Dropdown BlindOptions;
+    
 
     private void Start()
     {
@@ -35,11 +37,24 @@ public class Menu_Control : MonoBehaviour
         Options.SetActive(!Options.activeSelf);
     }
 
+    public void ToggleModoDaltonico()
+    {
+        Settings._currentType = 0;
+       
+        if(!Settings.modoDaltonico) Settings._currentType = Settings._lastType;
+
+        FindAnyObjectByType<Game_Manager>().GetComponent<ColorblindnessX>().InitChange();
+
+        Settings.modoDaltonico = !Settings.modoDaltonico;
+        
+        
+    }
 
     public void UpdateBlindOptions()
     {
         Settings._currentType = BlindOptions.value;
-
+        Settings._lastType = BlindOptions.value;
+        FindAnyObjectByType<Game_Manager>().GetComponent<ColorblindnessX>().InitChange();
     }
 
 
