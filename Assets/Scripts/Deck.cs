@@ -9,6 +9,12 @@ public class Deck : MonoBehaviour
     [SerializeField] GameObject carta;
     [SerializeField] GameObject Hand;
 
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
+#endif
+    }
     private void OnMouseDown()
     {
         GenerateCard(Hand,true);
