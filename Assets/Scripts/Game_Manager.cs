@@ -23,12 +23,27 @@ public class Game_Manager : MonoBehaviour
 
 
     //Componets
-    [SerializeField] Deck deck;
+    private Deck _deck;
+    public static Deck deck => game._deck;
+
     Settings settings;
 
     //Variables
     public enum State { Placing, Activating, Attacking};
     public State state;
+    [SerializeField] static int monsterTurns;
+
+    private static int _monsterCounter = 1;
+    public static int monsterCounter
+    {
+        get => _monsterCounter;
+
+        set
+        {
+            if (_monsterCounter > monsterTurns) _monsterCounter = 1;
+            else _monsterCounter = value;
+        }
+    }
 
 
     //TEMPORAL
@@ -84,7 +99,7 @@ public class Game_Manager : MonoBehaviour
 
         if (Input.GetKeyDown("p"))
         {
-            Pass();
+            PassTurn();
         }
     }
 
@@ -94,12 +109,19 @@ public class Game_Manager : MonoBehaviour
     }
 
 
-    public void Pass()
+    public void PassTurn()
     {
-        if (Advance()) Attack();
+        if (Advance()) {
+            //Codo de pasar turno aqui
 
 
 
+            Attack();
+
+            deck.GenerateCard(watingHand.gameObject, false);
+
+
+        }
     }
 
 
@@ -107,9 +129,7 @@ public class Game_Manager : MonoBehaviour
     void Attack()
     {
         int damage = 0;
-       
-
-
+        
         foreach(GameObject carta in watingHand.attackingMonsters)
         {
 
@@ -128,7 +148,6 @@ public class Game_Manager : MonoBehaviour
             if (damage < 0) damage = 0;
 
             carta.GetComponent<Carta_Monstruo>().health -= prevdamage - damage;
-            
 
         }
 
