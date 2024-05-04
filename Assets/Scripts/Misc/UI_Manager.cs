@@ -7,20 +7,24 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     //
-    public Game_Manager game;
+    private Game_Manager game;
 
     //Componentes
     public TextMeshProUGUI stateText;
     public Slider playerHealth;
     public Slider enemyHealth;
 
+    public GameObject Button;
+    public GameObject ButtonBad;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        game = GameObject.Find("GameManager").GetComponent<Game_Manager>();
 
-        
+        game = FindAnyObjectByType<Game_Manager>();
+
+
 
     }
 
@@ -28,8 +32,25 @@ public class UI_Manager : MonoBehaviour
     {
         enemyHealth.value = Game_Manager.enemy.health;
         playerHealth.value = Game_Manager.player.health;
+
+
+        stateText.text = Game_Manager.activeHand.name + " " + Game_Manager.state.ToString();
+        
+    }
+
+    public void PassTurn()
+    {
+
+        game.PassTurn();
         
 
-        stateText.text = Game_Manager.activeHand.name + " " + game.state.ToString();
     }
+
+    public void ToggleStateButton()
+    {
+        Button.SetActive(!Button.activeSelf);
+        ButtonBad.SetActive(!ButtonBad.activeSelf);
+
+    }
+
 }

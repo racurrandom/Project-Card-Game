@@ -44,7 +44,7 @@ namespace SOHNE.Accessibility.ColorblindnessX
         private static void OnScriptsReloaded()
         {
 #if !RENDERPIPELINE
-            Debug.LogError("There is no type of <b>SRP</b> included in this project.");
+            //Debug.LogError("There is no type of <b>SRP</b> included in this project.");
 #endif
         }
 

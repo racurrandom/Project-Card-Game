@@ -21,6 +21,12 @@ public class Deck : MonoBehaviour
         //StartCoroutine(GenerateMonster());
     }
 
+    private void Start()
+    {
+        GenerateCard(Game_Manager.player.gameObject, true);
+        GenerateCard(Game_Manager.enemy.gameObject, true);
+    }
+
     public void GenerateCard(GameObject _Hand, bool monstruo)
     {
         //Se crea la carta

@@ -6,6 +6,7 @@ public class Hand : MonoBehaviour
 {
     //Listas de cartas
     public List<GameObject> cartas;
+    public List<GameObject> placedCards;
     public List<GameObject> activeMonsters;
     public List<GameObject> attackingMonsters;
     public List<GameObject> targets;
@@ -80,6 +81,19 @@ public class Hand : MonoBehaviour
     public void RemoveCard(Carta carta)
     {
         cartas.Remove(carta.gameObject);
+    }
+
+
+    public void AddPlaced(Carta carta)
+    {
+        //Se mete la carta a las cartas de la mano
+        placedCards.Add(carta.gameObject);
+
+    }
+
+    public void RemovePlaced(Carta carta)
+    {
+        placedCards.Remove(carta.gameObject);
     }
 
     public void AddActive(Carta carta)

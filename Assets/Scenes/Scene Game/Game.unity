@@ -386,10 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc6cac33bf5fd864bbfb097a63e8970d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
   stateText: {fileID: 940998768}
   playerHealth: {fileID: 2107124610}
   enemyHealth: {fileID: 835811081}
+  Button: {fileID: 485669249}
+  ButtonBad: {fileID: 69171766}
 --- !u!4 &255919861
 Transform:
   m_ObjectHideFlags: 0
@@ -910,8 +911,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1620193472}
-        m_TargetAssemblyTypeName: Game_Manager, Assembly-CSharp
+      - m_Target: {fileID: 255919860}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
         m_MethodName: PassTurn
         m_Mode: 1
         m_Arguments:
@@ -2258,17 +2259,6 @@ Transform:
   - {fileID: 315709529}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1620193472 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1131707296043793682, guid: 56638741d930fa849a1e6d8b752822e2, type: 3}
-  m_PrefabInstance: {fileID: 1982631924}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ce05fb7de8e8c642b95047a2fbe1da6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1620356522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,14 +2485,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1583921521}
     m_Modifications:
-    - target: {fileID: 1652074503759764348, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
-      propertyPath: player
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1652074503759764348, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
-      propertyPath: cardPadding
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 2802098719180241825, guid: 695a349d0afd3c34fa1de37fd3543062, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5672483

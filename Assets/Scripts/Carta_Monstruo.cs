@@ -100,7 +100,8 @@ public class Carta_Monstruo : Carta
 
     }
 
-    protected override void OnMouseDown()
+
+    public override void Interact()
     {
         if (activeHand == hand.name)
         {

@@ -39,7 +39,7 @@ public class Carta : MonoBehaviour
     //Variables
     [HideInInspector] public Vector3 position;
     protected Vector3 displacement;
-    protected Game_Manager.State state => game.state;
+    protected Game_Manager.State state => Game_Manager.state;
     protected String activeHand => Game_Manager.activeHand.gameObject.name;
 
     //States
@@ -116,10 +116,26 @@ public class Carta : MonoBehaviour
 
     }
 
-    protected virtual void OnMouseDown()
+    protected void OnMouseDown()
     {
+        Interact();
+    }
 
-        if (activeHand == hand.name) {
+    private void OnMouseOver()
+    {
+        beingHovered = true;
+        
+    }
+
+    private void OnMouseExit()
+    {
+        beingHovered = false;
+    }
+
+    public virtual void Interact()
+    {
+        if (activeHand == hand.name)
+        {
             switch (state)
             {
                 case Game_Manager.State.Placing:
@@ -140,18 +156,7 @@ public class Carta : MonoBehaviour
             }
 
         }
-    }
-
-    private void OnMouseOver()
-    {
-        beingHovered = true;
-        
-    }
-
-    private void OnMouseExit()
-    {
-        beingHovered = false;
-    }
+    } 
 
     protected void PlaceCard()
     {
@@ -167,6 +172,7 @@ public class Carta : MonoBehaviour
                 hand.targets[i].GetComponent<Target>().ocupado = true;
 
                 placed = true;
+                hand.AddPlaced(this);
 
                 break;
             }

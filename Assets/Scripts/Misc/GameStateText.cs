@@ -24,7 +24,7 @@ public class GameStateText : MonoBehaviour
 
     private void Update()
     {
-        text.text = Game_Manager.activeHand.name +" "+ game.state.ToString();
+        text.text = Game_Manager.activeHand.name +" "+ Game_Manager.state.ToString();
     }
 
 

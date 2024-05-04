@@ -26,13 +26,17 @@ public class Game_Manager : MonoBehaviour
     private Deck _deck;
     public static Deck deck => game._deck;
 
+    private UI_Manager _ui_manager;
+    public static UI_Manager ui_manager => game._ui_manager;
+
     Settings settings;
 
     //Variables
     public enum State { Placing, Activating, Attacking};
-    public State state;
-    [SerializeField] static int monsterTurns;
+    public static State state;
+    
 
+    [SerializeField] static int monsterTurns = 2;
     private static int _monsterCounter = 1;
     public static int monsterCounter
     {
@@ -72,8 +76,12 @@ public class Game_Manager : MonoBehaviour
         game = this;
         try
         {
+            _deck = FindAnyObjectByType<Deck>();
             _player = GameObject.Find("Player").GetComponent<Hand>();
             _enemy = GameObject.Find("Enemigo").GetComponent<Hand>();
+            _activeHand = _player;
+            _watingHand = _enemy;
+            _ui_manager = FindAnyObjectByType<UI_Manager>();
         }
         catch 
         {
@@ -84,9 +92,9 @@ public class Game_Manager : MonoBehaviour
 
     private void Start()
     {
+        
         state = State.Placing;
-        _activeHand = player;
-        _watingHand = enemy;
+        
     }
 
 
@@ -109,19 +117,25 @@ public class Game_Manager : MonoBehaviour
     }
 
 
-    public void PassTurn()
+    public bool PassTurn()
     {
         if (Advance()) {
-            //Codo de pasar turno aqui
-
-
+            //Codigo de pasar turno aqui
 
             Attack();
 
-            deck.GenerateCard(watingHand.gameObject, false);
+            ui_manager.ToggleStateButton();
 
+            
+            deck.GenerateCard(watingHand.gameObject, monsterCounter == 1 ? true : false);
+            if (activeHand == player) monsterCounter++;
 
+            if(activeHand == enemy) StartCoroutine(enemy.gameObject.GetComponent<Enemy_AI>().MakeMove());
+
+            return true;
         }
+
+        return false;
     }
 
 
