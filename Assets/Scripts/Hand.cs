@@ -88,7 +88,7 @@ public class Hand : MonoBehaviour
     {
         //Se mete la carta a las cartas de la mano
         placedCards.Add(carta.gameObject);
-
+        RemoveCard(carta);
     }
 
     public void RemovePlaced(Carta carta)
@@ -122,6 +122,19 @@ public class Hand : MonoBehaviour
     {
         attackingMonsters.Remove(carta.gameObject);
     }
+
+    public int FreeTargets()
+    {
+        int count = 0;
+
+        foreach(GameObject tar in targets)
+        {
+            if (!tar.GetComponent<Target>().ocupado) count++;
+        }
+
+        return count;
+    }
+
     private void Update()
     {
         

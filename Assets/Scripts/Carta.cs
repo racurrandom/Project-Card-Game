@@ -118,13 +118,16 @@ public class Carta : MonoBehaviour
 
     protected void OnMouseDown()
     {
-        Interact();
+        //Solo si es del jugador
+        if (hand.player == 0) Interact();
+
     }
 
     private void OnMouseOver()
     {
-        beingHovered = true;
-        
+        //Solo si es del jugador
+        if(hand.player == 0) beingHovered = true;
+
     }
 
     private void OnMouseExit()

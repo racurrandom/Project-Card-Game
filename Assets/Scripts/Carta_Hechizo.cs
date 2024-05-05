@@ -32,6 +32,7 @@ public class Carta_Hechizo : Carta
             case "Healing_Potion":
 
                 Activate += Events.Heal;
+                Activate += Events.DestroyUp;
 
                 break;
 
