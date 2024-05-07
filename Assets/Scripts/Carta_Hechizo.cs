@@ -12,7 +12,11 @@ public class Carta_Hechizo : Carta
         Healing_Potion,
         Fire_Cristal,
         Magical_Wand,
-        Mindbender_Mushrooms
+        Mindbender_Mushrooms,
+        Fire_Demon,
+        Blessing_of_Nature,
+        Second_Chance,
+        True_Damage_Potion
     }
 
     public Carta carta;

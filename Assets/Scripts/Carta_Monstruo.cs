@@ -40,7 +40,11 @@ public class Carta_Monstruo : Carta
         Chonky_Flying_Cat,
         Mighty_Dragon,
         The_Dead_of_the_Cuteness,
-        Ethereal_Jellyfish
+        Ethereal_Jellyfish,
+        Annoying_Lightning_Bug,
+        Queen_of_Fairies,
+        Swamp_Toad,
+        Wendigo
     }
 
     public Carta carta;
@@ -159,6 +163,10 @@ public class Carta_Monstruo : Carta
                 
 
 
+
+                break;
+
+            default:
 
                 break;
         }

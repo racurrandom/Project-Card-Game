@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
 {
@@ -108,6 +110,26 @@ public class Game_Manager : MonoBehaviour
         if (Input.GetKeyDown("p"))
         {
             PassTurn();
+        }
+
+        try
+        {
+
+            if (player.health <= 0)
+            {
+                SceneManager.LoadScene("Scenes/Scenes EndGame/GameOver");
+                Destroy(this);
+            }
+
+            if (enemy.health <= 0)
+            {
+                SceneManager.LoadScene("Scenes/Scenes EndGame/Win");
+                Destroy(this);
+            }
+        }
+        catch
+        {
+
         }
     }
 

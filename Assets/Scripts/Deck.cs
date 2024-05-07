@@ -17,8 +17,10 @@ public class Deck : MonoBehaviour
     }
     private void OnMouseDown()
     {
+#if UNITY_EDITOR
         GenerateCard(Hand,true);
         //StartCoroutine(GenerateMonster());
+#endif
     }
 
     private void Start()

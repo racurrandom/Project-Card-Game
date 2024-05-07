@@ -13,7 +13,11 @@ public class Carta_Equipo : Carta
         Power_Vanisher,
         Force_Redistribution,
         Temporary_Cage,
-        Golden_Key
+        Golden_Key,
+        Random_Rules,
+        Broken_Mirror,
+        Sword_of_Spines,
+        Storm_in_a_Bottle
 
     }
 
