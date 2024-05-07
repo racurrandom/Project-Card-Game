@@ -504,16 +504,27 @@ MonoBehaviour:
   moveSpeed: 14
   Faces:
   - {fileID: 2100000, guid: b6a75061af5d8e647a7a248548d4b3a6, type: 2}
+  - {fileID: 2100000, guid: 37de5d24dab2bd646acb6de845f41bdc, type: 2}
+  - {fileID: 2100000, guid: 97ab7c93111a7b844a3f391dfa861d0b, type: 2}
   - {fileID: 2100000, guid: 2ba62a673eed90a4daeedf0e4ed08e95, type: 2}
   - {fileID: 2100000, guid: b648ac378c3950e4cbd85ae0f209b652, type: 2}
+  - {fileID: 2100000, guid: e69adccd48c64fa4584a943959973a3e, type: 2}
   - {fileID: 2100000, guid: 590514e974c4c22468dbb52f2ff8f91a, type: 2}
   - {fileID: 2100000, guid: f2f3b48d2aec5554f812bbaee9504ec0, type: 2}
   - {fileID: 2100000, guid: 9a545245c9643b0429969865de38f34d, type: 2}
   - {fileID: 2100000, guid: 1cd1f42626805d543b38a0ff13e13def, type: 2}
   - {fileID: 2100000, guid: cd9314bf017543d4b8b0e5f94ac65c4d, type: 2}
   - {fileID: 2100000, guid: c3cd8f78a4ac51c4283fad9866b8bf67, type: 2}
+  - {fileID: 2100000, guid: 62afd74bc654de94cae85b6abaa77411, type: 2}
+  - {fileID: 2100000, guid: 6169ed26b11b89f4f865cf0e76f8f7c7, type: 2}
+  - {fileID: 2100000, guid: db2ce055f8f65d34c98016c5f6fb3bbe, type: 2}
+  - {fileID: 2100000, guid: a727c30163f11314786d08446badfd07, type: 2}
+  - {fileID: 2100000, guid: ffa6f2a1241fd304492276104b325663, type: 2}
+  - {fileID: 2100000, guid: 8d1ac221d2ee9c84a91fecdaf4461c6f, type: 2}
   - {fileID: 2100000, guid: b422cb1dadd998a4a980f83ea3f18443, type: 2}
   - {fileID: 2100000, guid: e60f206324706254a8872921f244a43c, type: 2}
+  - {fileID: 2100000, guid: ef56e61c4873fda48bf31033181ecc1e, type: 2}
+  - {fileID: 2100000, guid: f500fd9abaaacf94fb926ee45b38681b, type: 2}
   stats: {fileID: 7450239093054417743}
   attackNum: {fileID: 938121015747889084}
   healthNum: {fileID: 6803811357972500588}

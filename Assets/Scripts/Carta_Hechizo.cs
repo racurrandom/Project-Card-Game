@@ -10,7 +10,7 @@ public class Carta_Hechizo : Carta
     public enum Carta
     {
         Healing_Potion,
-        Fire_Crystal,
+        Fire_Cristal,
         Magical_Wand,
         Mindbender_Mushrooms
     }
@@ -36,7 +36,7 @@ public class Carta_Hechizo : Carta
 
                 break;
 
-            case "Fire_Crystal":
+            case "Fire_Cristal":
 
 
 
