@@ -67,7 +67,7 @@ public class Carta_Monstruo : Carta
 
         print("a");
 
-        //se añade a la lista de activos de su mano si es monstruo
+        //se aï¿½ade a la lista de activos de su mano si es monstruo
         if (active)
         {
             hand.AddActive(this);
@@ -88,7 +88,7 @@ public class Carta_Monstruo : Carta
 
         ToggleHologram(hologramMatAttack);
 
-        //se añade a la lista de activos de su mano si es monstruo
+        //se aï¿½ade a la lista de activos de su mano si es monstruo
         if (active)
         {
             hand.AddAttacker(this);

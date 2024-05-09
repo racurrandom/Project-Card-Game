@@ -30,6 +30,7 @@ public class Enemy_AI : MonoBehaviour
 
     public IEnumerator MakeMove()
     {
+        Debug.Log(Game_Manager.state);
         //Se inicia un temporizador de 1s
         yield return new WaitForSeconds(1f);
 
@@ -74,6 +75,7 @@ public class Enemy_AI : MonoBehaviour
                 break;
         }
 
+        
         if (Game_Manager.state != Game_Manager.State.Attacking) StartCoroutine(MakeMove());
 
         
@@ -87,7 +89,7 @@ public class Enemy_AI : MonoBehaviour
         switch (Game_Manager.state)
         {
             case Game_Manager.State.Placing:
-                //Damage List recive las cartas ordenadas por daño (descendente)
+                //Damage List recive las cartas ordenadas por daï¿½o (descendente)
                 DamageList.Clear();
                 foreach (GameObject carta in hand.cartas.OrderByDescending(car => car.GetComponent<Carta>().damage))
                 {
@@ -109,7 +111,7 @@ public class Enemy_AI : MonoBehaviour
 
             case Game_Manager.State.Activating:
 
-                //Damage List recive las cartas ordenadas por daño (descendente)
+                //Damage List recive las cartas ordenadas por daï¿½o (descendente)
                 DamageList.Clear();
                 foreach (GameObject carta in hand.placedCards.OrderByDescending(car => car.GetComponent<Carta>().damage))
                 {
@@ -129,7 +131,7 @@ public class Enemy_AI : MonoBehaviour
 
             case Game_Manager.State.Attacking:
 
-                //Damage List recive las cartas ordenadas por daño (descendente)
+                //Damage List recive las cartas ordenadas por daï¿½o (descendente)
                 DamageList.Clear();
                 foreach (GameObject carta in hand.placedCards.OrderByDescending(car => car.GetComponent<Carta>().damage))
                 {

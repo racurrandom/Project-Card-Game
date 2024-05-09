@@ -504,6 +504,7 @@ MonoBehaviour:
   moveSpeed: 14
   Faces:
   - {fileID: 2100000, guid: b6a75061af5d8e647a7a248548d4b3a6, type: 2}
+  - {fileID: 2100000, guid: 73c4383fd31668c41bab2fe4520f2801, type: 2}
   - {fileID: 2100000, guid: 37de5d24dab2bd646acb6de845f41bdc, type: 2}
   - {fileID: 2100000, guid: 97ab7c93111a7b844a3f391dfa861d0b, type: 2}
   - {fileID: 2100000, guid: 2ba62a673eed90a4daeedf0e4ed08e95, type: 2}
@@ -656,14 +657,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5500492003534206426}
     m_Modifications:
-    - target: {fileID: -7511558181221131132, guid: f33df152f1f18af40b891daf2d2d0c63, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 945d67d073bbed24b9808905448b7c0f, type: 2}
-    - target: {fileID: -7511558181221131132, guid: f33df152f1f18af40b891daf2d2d0c63, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1cd1f42626805d543b38a0ff13e13def, type: 2}
     - target: {fileID: -8679921383154817045, guid: 70ee01a642480a94aa6364f76d5ed0d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3557636
@@ -728,6 +721,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f33df152f1f18af40b891daf2d2d0c63, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 945d67d073bbed24b9808905448b7c0f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: f33df152f1f18af40b891daf2d2d0c63, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1cd1f42626805d543b38a0ff13e13def, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

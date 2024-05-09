@@ -84,6 +84,8 @@ public class Game_Manager : MonoBehaviour
             _activeHand = _player;
             _watingHand = _enemy;
             _ui_manager = FindAnyObjectByType<UI_Manager>();
+            Debug.Log(activeHand.name);
+            Debug.Log(watingHand.name);
         }
         catch 
         {
@@ -153,6 +155,7 @@ public class Game_Manager : MonoBehaviour
             if (activeHand == player) monsterCounter++;
 
             if(activeHand == enemy) StartCoroutine(enemy.gameObject.GetComponent<Enemy_AI>().MakeMove());
+            Debug.Log(activeHand.name);
 
             return true;
         }
@@ -204,6 +207,11 @@ public class Game_Manager : MonoBehaviour
             //Change active player
             _activeHand = activeHand == player ? enemy : player;
             _watingHand = watingHand == player ? enemy : player;
+
+            
+            
+            Debug.Log(activeHand.name + ", " + _activeHand);
+            Debug.Log(watingHand.name+ ", " + _watingHand);
 
             return true;
         }
